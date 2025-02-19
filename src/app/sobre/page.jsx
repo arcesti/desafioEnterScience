@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import geraToken from "../lib/services/apiToken";
 
-export default function artista() {
+export default function Artista() {
     const [artista, setArtista] = useState(null);
     const searchParams = useSearchParams();
     const id = searchParams.get("id");

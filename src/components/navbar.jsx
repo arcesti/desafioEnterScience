@@ -30,8 +30,7 @@ function NavBar() {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Início</Nav.Link>
-            <Nav.Link href="#about">Sobre</Nav.Link>
-            <Nav.Link href="#services">Serviços</Nav.Link>
+            <Nav.Link href="#contratacoes">Contratações</Nav.Link>
           </Nav>
           <div className="d-none d-md-flex align-items-center">
             {

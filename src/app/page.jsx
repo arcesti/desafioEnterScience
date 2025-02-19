@@ -1,15 +1,52 @@
 "use client"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 import Image from "next/image";
+import style from "./page.module.css";
 import { recomendados } from "./lib/services/apiServices.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [artistas, setArtista] = useState([]);
+  const [carregadoArtista, setCarregadoArtista] = useState(false);
+
   useEffect(() => {
-    recomendados();
+    async function fetchData() {
+      const res = await recomendados();
+      setArtista(res);
+      setCarregadoArtista(true);
+    }
+    fetchData();
   }, []);
-  return (
-    <div style={{display: "flex", width:"100vw", flex: "0 1 20rem"}}>
-        
-    </div>
-  );
+  if (carregadoArtista) {
+    return (
+      <div className={style.container}>
+        {artistas.map((artista) => (
+          <div key={artista.id} className={style.cardArtista}>
+            <Image
+              src={artista.images[0].url}
+              width={320}
+              height={320}
+              alt="Imagem artista"
+            />
+            <div className={style.cardContent}>
+              <h1>{artista.name}</h1>
+              <hr />
+              <h2>Gêneros: {artista.genres.length > 0 ? artista.genres.join(", ") : "Indisponível no momento"}</h2>
+              <h2>Popularidade: {artista.popularity}%</h2>
+              <h2>Seguidores: {artista.followers.total}</h2>
+              <button className={style.button}>Contratar</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  else {
+    return (
+      <>
+        <h1 style={{textAlign: "center"}}>CARREGANDO ARTISTAS...</h1>
+      </>
+    )
+  }
 }

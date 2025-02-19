@@ -4,5 +4,6 @@
 }
 
 body {
-    background-color: #57575b;
+    background: linear-gradient(135deg, #c2c2d6, #323232);
+    font-family: var(--font-roboto);
 }
