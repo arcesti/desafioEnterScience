@@ -2,20 +2,18 @@
 import Modal from 'react-bootstrap/Modal';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import {  useState } from 'react';
 
 function ModalSearch(props) {
-    const [show, setShow] = useState(true);
-    const handleClose = () => setShow(false);
+    const handleClose = () => props.setShowModal(false);
     return (
         <>
             {
-                show && (
+                props.showModal && (
                     <div
                         className="modal show"
                         style={{ display: 'block', position: 'fixed' }}
                     >
-                        <Modal.Dialog >
+                        <Modal.Dialog>
                             <Modal.Header closeButton onClick={handleClose}>
                                 <Modal.Title style={{ color: "#fff" }}>Artistas encontrados</Modal.Title>
                             </Modal.Header>

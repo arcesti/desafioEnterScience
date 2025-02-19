@@ -9,6 +9,7 @@ const SpotifySearch = () => {
     const [results, setResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false)
     let accessToken;
     async function fetchToken() {
         accessToken = await geraToken();
@@ -36,6 +37,7 @@ const SpotifySearch = () => {
                 });
 
                 setResults(response.data.artists.items);
+                setShowModal(true);
             } catch (error) {
                 console.error('Erro ao buscar artistas:', error);
             } finally {
@@ -66,7 +68,7 @@ const SpotifySearch = () => {
             {loading && <p>Carregando...</p>}
             {
                 showResults ? (
-                    <ModalSearch results={results}>
+                    <ModalSearch showModal={showModal} setShowModal={setShowModal} results={results}>
                         
                     </ModalSearch>
                 )

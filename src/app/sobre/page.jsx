@@ -2,9 +2,12 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import geraToken from "../lib/services/apiToken";
+import CardArtista from "./components/cardArtista";
+import { searchAlbums } from "../lib/services/apiServices";
 
 export default function Artista() {
     const [artista, setArtista] = useState(null);
+    const [albums, setAlbums] = useState(null);
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const [accessToken, setAccessToken] = useState(null);
@@ -17,7 +20,6 @@ export default function Artista() {
         fetchToken();
     }, []);
     console.log("Token: " + accessToken);
-
     useEffect(() => {
         async function fetchArtist() {
             let artista = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
@@ -27,21 +29,17 @@ export default function Artista() {
             });
             const data = await artista.json();
             setArtista(data);
+            const response = await searchAlbums(data.id);
+            setAlbums(response);
         }
         fetchArtist();
     }, [id, accessToken]);
-    console.log(artista)
-    console.log(geraToken().then(() => console.log()))
+    console.log(`MEUS ALBUMS: ${albums}`)
     return (
         <>
-            <h1>Sobre o artista</h1>
-            <p>
-                Nome:{artista?.name};
-            </p>
-            <br />
-            <p>
-                ID:{artista?.id}
-            </p>
+            <CardArtista artista={artista} albums={albums}>
+
+            </CardArtista>
         </>
     );
 }
