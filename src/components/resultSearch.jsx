@@ -52,7 +52,6 @@ const SpotifySearch = () => {
 
         return () => clearTimeout(delayDebounceFn); // Limpar o timeout se o componente for desmontado ou o valor mudar
     }, [searchQuery, accessToken]); // Reexecuta sempre que searchQuery mudar
-
     return (
         <div className='d-flex me-2 w-100'>
             <input

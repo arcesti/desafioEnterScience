@@ -20,7 +20,7 @@ export async function recomendados() {
     }
 }
 
-export async function searchAlbums(id) {
+export async function fetchAlbums(id) {
     let url = "https://api.spotify.com/v1/artists/id/albums?limit=5";
     try {
         let token = await geraToken();

@@ -5,6 +5,7 @@ import Image from "next/image";
 import style from "./page.module.css";
 import { recomendados } from "./lib/services/apiServices.js";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [artistas, setArtista] = useState([]);
@@ -35,7 +36,11 @@ export default function Home() {
               <h2>Gêneros: {artista.genres.length > 0 ? artista.genres.join(", ") : "Indisponível no momento"}</h2>
               <h2>Popularidade: {artista.popularity}%</h2>
               <h2>Seguidores: {artista.followers.total}</h2>
-              <button className={style.button}>Contratar</button>
+                <Link href={`/contratacao?name=${artista.name}&genre=${artista.genres[0]}&popularity=${artista.popularity}&image=${artista.images[0]?.url}`}>
+              <button className={style.button}>
+                  Contratar
+              </button>
+                </Link>
             </div>
           </div>
         ))}
@@ -45,7 +50,7 @@ export default function Home() {
   else {
     return (
       <>
-        <h1 style={{textAlign: "center"}}>CARREGANDO ARTISTAS...</h1>
+        <h1 style={{ textAlign: "center" }}>CARREGANDO ARTISTAS...</h1>
       </>
     )
   }
