@@ -13,7 +13,7 @@ function NavBar() {
   return (
     <Navbar expand="md" bg="dark" data-bs-theme="dark" className="px-3">
       <Container >
-        <Navbar.Brand href="#">Show Time</Navbar.Brand>
+        <Navbar.Brand href="/">Show Time</Navbar.Brand>
         <div className="d-md-none d-flex me-auto">
           <p style={{ color: "#fff" }}>Busque por um artista ou banda</p>
           <BsSearch
@@ -29,8 +29,8 @@ function NavBar() {
 
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Início</Nav.Link>
-            <Nav.Link href="#contratacoes">Contratações</Nav.Link>
+            <Nav.Link href="/">Início</Nav.Link>
+            <Nav.Link href="/contratacoes">Contratações</Nav.Link>
           </Nav>
           <div className="d-none d-md-flex align-items-center">
             {

@@ -1,6 +1,5 @@
 "use client"
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import CardArtista from "./components/cardArtista";
 
 export default function Artista() {

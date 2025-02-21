@@ -1,7 +1,7 @@
 .container {
     display: flex;
     gap: 2rem;
-    flex-wrap: wrap; /* Permite que os itens se movam para uma nova linha em telas pequenas */
+    flex-wrap: wrap;
     justify-content: center;
     padding: 1rem;
     height: calc(100vh - 56px);
@@ -12,21 +12,21 @@
 .card {
     background: #d6d6d6;
     border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para o card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* Limita a largura máxima do card */
+    max-width: 400px;
     height: 80%;
-    overflow: hidden; /* Evita que elementos saiam do limite do card */
+    overflow: hidden;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo */
+    align-items: center;
     text-align: center;
-    transition: transform 0.3s ease; /* Efeito ao passar o mouse */
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.05); /* Aumenta um pouco o card ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .card img {
@@ -34,7 +34,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 1rem;
-    margin-bottom: 1rem; /* Espaço abaixo da imagem */
+    margin-bottom: 1rem;
 }
 
 .card p {
@@ -60,7 +60,6 @@
     margin-bottom: -1rem
 }
 
-/* Estilização do formulário */
 .formContainer {
     width: 50%;
     height: 80%;

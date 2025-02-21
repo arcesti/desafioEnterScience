@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Este é um site desenvolvido para vaga enterscience.
 
-## Getting Started
+Tecnologias utilizadas:
+-> Nest.js
+-> React.js
+-> React-Bootstrap
+-> Node.js
+-> API do spotfy para acesso aos dados de artistas e bandas (todo o conteudo é consumido dessa API)
 
-First, run the development server:
+A tela inicial (raiz: "/") contém uma barra de navegação (navbar) que acompanha o layout de todo o projeto, com dois links: Início e Contratações.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-> Início retorna à página inicial, onde temos alguns cards com recomendações de artistas. Ao passar o mouse sobre um card, aparecem informações sobre o artista e um botão para contratar. Caso o usuário clique, ele será levado à página de Contratação ("/contratacao"). Lá, um formulário pode ser preenchido com os dados do evento. Após finalizar, a contratação é salva no localStorage e o usuário é redirecionado de volta à página inicial.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-> No link Contratações, o usuário é direcionado a uma página ("/contratacoes") onde pode visualizar todas as suas contratações em um formato de tabela.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+-> Na navbar, há também um ícone de lupa. Ao ser clicado, abre-se um input para buscar artistas e bandas do Spotify. O usuário pode encontrar seu cantor favorito, selecioná-lo e será redirecionado à página de Contratação ("/contratacao").
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para rodar a aplicação:
 
-## Learn More
+Clone o repositório do meu GitHub: https://github.com/arcesti/desafioEnterScience.
 
-To learn more about Next.js, take a look at the following resources:
+Dentro da pasta do projeto, instale as dependências executando o comando npm install.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Utilize o terminal para acessar a pasta backend: cd ./backend.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Execute o comando npm run dev (para rodar o Express, que faz a requisição do token de acesso à API do Spotify).
 
-## Deploy on Vercel
+Abra um novo terminal no diretório raiz do projeto e execute novamente npm run dev (para rodar a aplicação Next.js).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Após esses dois passos, basta acessar localhost:3000 para visualizar a aplicação.
